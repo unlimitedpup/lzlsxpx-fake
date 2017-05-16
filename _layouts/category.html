@@ -1,0 +1,48 @@
+---
+layout: page
+---
+
+{% capture var %}{{ page.url | remove: 'category' | remove: '/' | replace: '%20' , ' ' }}{% endcapture %}
+
+<header class='header'>
+   <h3 class='title'>{% include icons/tag.html %}{{ var | replace: '-', ' ' }}</h3>
+</header>
+
+<section class='posts'>
+   {% assign p = site.posts | sort: 'rate' | reverse %}
+   {% for post in p %}
+   {% for cat in post.categories %}
+   {% if cat == var %}
+   <a class='post-item' href='{{ post.url }}'>
+      <figure class='img'>
+         <img src="{{ site.baseurl }}/assets/img/{{ post.title | replace: ' ', '-' | downcase }}.jpg" alt='{{ site.data.settings.title}} {{ post.title }}'>
+         <span class='time'>{% include icons/time.html %} {{ post.duration }}</span>
+      </figure>
+      <div class='text'>
+         <div class='title'><strong>{{ post.title }}</strong></div>
+         {% if post.rate >= 2 %}
+         <div class='rate'>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+         </div>
+         {% else %}
+         <div class='rate'>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-half.html %}</span>
+            <span>{% include icons/star-empty.html %}</span>
+         </div>
+         {% endif %}
+         <div class='view'>
+            {% include icons/view.html %} {{ post.view }}
+         </div>
+      </div>
+   </a>
+   {% endif %}
+   {% endfor %}
+   {% endfor %}        
+</section>

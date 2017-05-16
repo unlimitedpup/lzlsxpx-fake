@@ -1,0 +1,11 @@
+lang: 'en'
+title: 'Fake Taxi Videos'
+domain: 'FakeTaxiVids'
+email: 'palaktube@gmail.com'
+
+menu: 
+ - {name: 'popular video'}
+ - {name: 'top rated'}
+ - {name: 'category'}
+ - {name: 'longest'}
+ - {name: 'contact'}

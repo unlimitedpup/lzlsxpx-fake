@@ -1,0 +1,27 @@
+<footer id='footer'>
+   <section class='footer-container'>
+      <div class='top'>
+         {% for menu in site.data.settings.menu %}
+         <a href="/{{ menu.name | replace: ' ', '-' }}">{{ menu.name }}</a>
+         {% endfor %}
+      </div> 
+      <div class='bottom'>
+         <span>{{ site.data.settings.title }} Uncensored © Copyright 2017 · </span>
+         <a href='/terms'>Terms & Use</a>
+         <a href='{{ site.baseurl }}/dmca'>DMCA</a>
+         <a href='{{ site.baseurl }}/2257'>18 U.S.C. 2257</a>
+      </div>
+   </section>
+</footer>   
+
+<script>
+   siteUrl = '{{ site.url }}';   
+   siteEmail = '{{ site.data.settings.email }}';
+</script>
+
+<script src='/assets/js/jquery-3.1.1.min.js'></script>
+<script src='/assets/js/functions.js'></script>
+
+
+</body>
+</html>

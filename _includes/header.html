@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='{{ site.data.settings.lang }}'>
+<head>
+   <title>{{ page.title }}{% if page.exclude %}{% else %} · {{ site.data.settings.title }}{% endif %}{% if page.aftertitle %} · {{ page.aftertitle }}{% endif %}</title>
+   <meta charset='utf-8'>
+   <meta name='description' content='{% if page.description %}{{ page.description }} · {% endif %}{{ page.title }}{% assign cat-list = page.categories %}{% for cat in cat-list %} & {{ cat }}{% endfor %}'>
+   <meta name='keywords' content='{% if page.meta %}{{ page.meta }} · {% endif %}{{ page.categories }}{% assign tag-list = page.tags %}{% for tag in tag-list %} & {{ tag }}{% endfor %}'>
+   <meta name='author' content='{{site.data.settings.author}}'>
+   <meta name='dcterms.rightHolder' content='{{site.url}}'>
+   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+   <link rel='cannonical' href="{{site.url}}{{page.url | replace: 'index.html' , ''}}">
+   <!--<link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">-->
+   <link rel='stylesheet' href='/assets/css/main.css' type='text/css'>
+   <link rel='shortcut icon' href='/favicon.ico'>   
+   
+   <script type="text/javascript">
+      var postsHREF = [{% for post in site.posts %}"{{ post.url }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+      var postsTitle = [{% for post in site.posts %}"{{ post.title }}"{% unless forloop.last %},{% endunless %}{% endfor %}];
+   </script>
+   
+</head>
+<body id='main'>
+   <header id='header'>
+      <section class='header-container'>
+         <div class='header-top'>
+            <a class='banner' href='/'><img src='/assets/img/banner.png' alt='{{ site.data.settings.title}} banner'></a>
+            <div class='btn'>
+               <a class='upload' href='/'>Upload</a>
+               <a class='login' href='/'>Log In</a>
+               <a class='signup' href='/'>Sign Up</a>
+            </div>      
+         </div>
+         <div class='header-bottom'>
+            <nav class='nav-menu'>
+               <a class="home {% if page.url == '/' %}current{% endif %}" href='/'>{% include icons/home.html %}</a>
+               
+               {% for menu in site.data.settings.menu %}
+               {% if menu.name != 'contact' %}
+               {% assign menu-item = menu.name | replace: ' ', '-' %}
+               <a class='{% if page.url contains menu-item %}current{% endif %}' href="/{{ menu.name | replace: ' ', '-' }}">{{ menu.name }}</a>
+               {% endif %}
+               {% endfor %}
+               
+               <a id='random'>{% include icons/q-mark.html %}</a>
+            </nav>
+            <form class='search' action="/search" method="get">
+              <input type="text" id="search-box" name="query" placeholder="Search here..">
+              <input type="submit" value="">
+            </form>
+         </div>
+      </section>   
+   </header>

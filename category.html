@@ -1,0 +1,44 @@
+---
+layout: default
+title: Popular Categories
+meta: 'Chinese Sex Interracial & Pinay Sex Interracial & American Sex Interracial & Brazilians Sex Interracial & Mexicans Sex Interracial & Taiwanese Sex Interracial & Japanese Sex Interracial & Russians Sex Interracial & French Sex Interracial & Germans Sex Interracial & Croatians Sex Interracial & Korean Sex Interracial & New Zealanders Sex Interracial & Puerto Ricans Sex Interracial & Africans Sex Interracial & Dominicans Sex Interracial & Italians Sex Interracial & Malaysians Sex Interracial'
+priority: 0.8
+changefreq: daily
+---
+
+<header class='header'>
+   <h3 class='title'>{{ page.title }}</h3>
+</header>
+
+<section class='posts category-posts'>   
+{% assign cat_list = site.categories %}  
+{% if cat_list.first[0] == null %}
+   <li class='no-tags'>No category available in this site</li>
+{% else %}
+   {% for cat in cat_list %} 
+   {% for cat-page in site.pages %}
+   {% if cat-page.layout == 'category' %}
+   {% for cat-post in site.posts %}
+   {% if cat-post.title == cat-page.cover-post %}
+   {% assign x = cat[0] %}
+   {% assign y = cat-page.path | remove: 'category/' | remove: '.md' %}
+   {% if x == y %}
+
+   <a class='post-item' href='{{ site.baseurl }}{{ cat-page.url }}'>
+      <figure class='img'>
+         <img src="{{ site.baseurl }}/assets/img/{{ cat-post.title | replace: ' ', '-' | downcase }}.jpg" alt='{{ site.data.settings.title}} {{ post.title }}'>
+      </figure>
+      <div class='text'>
+         <div class='title'><strong>{{ cat[0] | capitalize | replace: '-', ' ' }}</strong></div>
+         <span class='size'>{% include icons/star-full.html %}<span>{{ cat[1].size }}</span></span>
+      </div>
+   </a>
+
+   {% endif %}
+   {% endif %}
+   {% endfor %}
+   {% endif %}
+   {% endfor %}
+   {% endfor %}
+{% endif %}
+</section>

@@ -1,0 +1,46 @@
+---
+layout: page
+title: Top Rated
+meta: 'Chinese Sex Interracial & Pinay Sex Interracial & American Sex Interracial & Brazilians Sex Interracial & Mexicans Sex Interracial & Taiwanese Sex Interracial & Japanese Sex Interracial & Russians Sex Interracial & French Sex Interracial & Germans Sex Interracial & Croatians Sex Interracial & Korean Sex Interracial & New Zealanders Sex Interracial & Puerto Ricans Sex Interracial & Africans Sex Interracial & Dominicans Sex Interracial & Italians Sex Interracial & Malaysians Sex Interracial'
+priority: 0.8
+changefreq: daily
+---
+
+<header class='header'>
+   <h3 id='search-title' class='title'>{{ page.title }}</h3>
+</header>
+
+<section class='posts'>
+   {% assign p = site.posts | sort: 'duration' | sort: 'rate' | reverse %}
+   {% for post in p %}
+   <a class='post-item' href='{{ post.url }}'>
+      <figure class='img'>
+         <img src="/assets/img/{{ post.title | replace: ' ', '-' | downcase }}.jpg" alt='{{ site.data.settings.title}} {{ post.title }}'>
+         <span class='time'>{% include icons/time.html %} {{ post.duration }}</span>
+      </figure>
+      <div class='text'>
+         <div class='title'><strong>{{ post.title }}</strong></div>
+         {% if post.rate >= 2 %}
+         <div class='rate'>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+         </div>
+         {% else %}
+         <div class='rate'>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-half.html %}</span>
+            <span>{% include icons/star-empty.html %}</span>
+         </div>
+         {% endif %}
+         <div class='view'>
+            {% include icons/view.html %} {{ post.view }}
+         </div>
+      </div>
+   </a>
+   {% endfor %}
+</section>

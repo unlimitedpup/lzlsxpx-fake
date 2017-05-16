@@ -1,0 +1,19 @@
+<!-- Pagination links -->
+<div class="pagination-flex {{include.paginate-position}}">
+   {% if paginator.previous_page %}
+      <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="previous">{% include icons/arrow-prev.html %}</a>
+   {% endif %}
+   {% assign limit = paginator.total_pages %}
+   
+   {% for i in (1..limit) %}
+   {% assign var = page.url | slice: 5 %}   
+   {% capture x %}{{ var }}{% endcapture %}   
+   {% capture y %}{{ i }}{% endcapture %}
+   
+   <a class="page_number{% if x contains y %} current-page{% endif %}" href="{% if i == 1 %}{{ site.baseurl }}/{% else %}{{ site.baseurl }}/page{{ i }}{% endif %}">{{ i }}</a>
+   {% endfor %}
+   
+   {% if paginator.next_page %}
+      <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="next">{% include icons/arrow-next.html %}</a>  
+   {% endif %}
+</div>    

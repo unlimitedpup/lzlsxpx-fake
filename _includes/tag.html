@@ -1,0 +1,6 @@
+{% assign tags_list = site.tags %}
+{% for tag in tags_list %} 
+   {% if tag[0] == include.tag %}
+      <a href="{{site.baseurl}}/tags/{{ tag[0] }}">{{ tag[0] | replace: '-' , ' ' }}</a>
+   {% endif %}
+{% endfor %}

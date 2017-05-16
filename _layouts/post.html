@@ -1,0 +1,72 @@
+---
+layout: page
+---
+
+<article id='post'>
+   <h3 class='title'>{{ page.title }}</h3>
+   <div class='video'><!--
+      --><iframe src="{{ page.video }}" frameborder="0" scrolling="no"></iframe>
+   </div>
+   <span class='note'>Please notify me of deleted videos by clicking on <span>Report Deleted Video</span> button in the right, I will fix them within few hours.</span>
+   <section class='extra'>
+      <div class='rate-view'>
+         {% if page.rate >= 2 %}
+         <div class='rate'>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+         </div>
+         {% else %}
+         <div class='rate'>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-full.html %}</span>
+            <span>{% include icons/star-half.html %}</span>
+            <span>{% include icons/star-empty.html %}</span>
+         </div>
+         {% endif %}
+         <div class='view'>{% include icons/view.html %} <span>{{ page.view }}K</span></div>
+         <div class='duration'>{% include icons/time.html %}<span>{{ page.duration }}</span></div>
+      </div>
+      <form id='form' class='report' method='POST'>
+         {% include icons/flag.html %} 
+         <input type='text' name='title' id='title' value='{{ page.title }}' style='display: none'>
+         <input type='text' name='url' id='url' value='{{ site.url }}{{ page.url }}' style='display: none'>
+         <input type='submit' value='report deleted video'>
+      </form>
+   </section>   
+   
+   <span class='show-more'>.. Show more ..</span>
+   
+   <section class='other hidden'><strong>Added On: </strong><span>{{ page.date | date: "%B %-d, %Y" }}</span></section>
+   
+   <section class='other hidden'>
+      <strong>Category: </strong>
+      <span>
+         {% if page.categories.size != 0 %}
+            {% for cats in page.category %}
+               {% include category.html cat=cats %}
+            {% endfor %}
+         {% else %}
+         <span>No category available in this post</span>
+         {% endif %}     
+      </span>
+   </section> 
+
+   <section class='other hidden'>
+      <strong>Tags: </strong>
+      <span>
+         {% if page.tags.size != 0 %}
+            {% for tags in page.tags %}
+               {% include tag.html tag=tags %}
+            {% endfor %}
+         {% else %}
+         <span>No tags available in this post</span>
+         {% endif %}     
+      </span>
+   </section>     
+</article> 
+
+{% include related-post.html %}
