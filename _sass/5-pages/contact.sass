@@ -1,0 +1,49 @@
+.contact.form
+   max-width: 650px
+   
+   fieldset
+      margin: 1rem 0px
+      padding: 0px
+      border: 0px
+      
+      span
+         +display(inline-block)
+         width: 70px
+         
+      input, textarea
+         outline: none
+         padding: .5rem
+         border-radius: 3px
+         border: 1px solid $border-color
+         background-color: transparent !important
+         color: white
+         
+      input
+         width: 270px
+         
+      input:-webkit-autofill 
+         -webkit-box-shadow: 0 0 0px 1000px #080808 inset
+         -webkit-text-fill-color: white !important
+         
+      textarea
+         resize: none
+         +size(576px 14em)
+      
+      &.message
+         span
+            padding-top: .4rem
+            vertical-align: top
+            
+   input[type="submit"] 
+      @extent .bigger
+      background-color: transparent
+      border: 1px solid $border-color
+      text-transform: uppercase
+      padding: .5rem 1rem
+      border-radius: 3px
+      margin-left: 73px
+      float: right
+      
+      &:hover
+         background-color: $border-color
+      

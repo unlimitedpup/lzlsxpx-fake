@@ -1,0 +1,129 @@
+.posts
+   width: 900px
+   float: left
+   margin-bottom: -1.5rem
+   
+   .post-item
+      margin-bottoM: 1.5rem
+      width: 220px
+      +display(inline-block)
+      overflow: hidden
+      
+      .img
+         +position(relative)
+         height: 123px
+         overflow: hidden
+            
+         > img
+            width: 100%
+
+      .time
+         +position(absolute, null 0px .3rem null)
+         @extend .smaller
+         padding: .2rem .4rem
+         background-color: rgba($color-main, .7)
+
+         svg
+            +size(.8rem)
+            fill: white
+            margin-right: .1rem
+
+      .text
+         +clearfix()
+         padding: .3rem .2rem 0px
+
+         .title
+            height: 22px
+            text-align: center
+            overflow: hidden
+            +display(block)
+
+         .rate
+            +clearfix()
+            float: left
+            width: 50%
+
+            span
+               +display(block)
+               float: left
+               margin: 0px 2px
+
+               svg
+                  +size(15px)
+                  fill: $color-alt
+
+
+         .view
+            padding-top: 2px
+            float: right
+            width: 50%
+            text-align: right
+            @extend .smaller
+
+            svg
+               +size(20px)
+               fill: white
+               margin-right: .2rem
+                  
+                  
+.category-posts, .search-posts
+   width: 100%
+   
+   .post-item
+      width: 199px
+      
+      .img
+         height: 110px
+         
+      .text
+         padding: .3rem .4rem .2rem
+         border: 1px solid $border-color
+         border-top: 0px
+         +clearfix()
+
+         .title
+            float: left
+            
+         .size
+            float: right
+
+            svg
+               +size(15px)
+               margin: 0px 2px 2px 0px
+               fill: $color-alt
+
+            span
+               +display(inline-block)    
+                  
+.related-posts
+   margin-top: 1rem
+   
+   .title
+      svg
+         margin: -4px .4rem 0px 0px
+         fill: $color-alt
+         +size(21px)
+   
+.search-posts
+   margin-left: -2px
+   margin-right: -2px
+   
+   .post-item
+      margin-left: 2px 
+      margin-right: 2px
+      
+      .img .time img
+         margin: -2px 4px 0px 0px
+         
+         
+      .text
+         .title
+            text-align: left
+            width: 140px
+            
+         .view
+            float: right
+            width: 44px
+            
+            img
+               margin: -2px 4px 0px 0px

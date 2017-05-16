@@ -1,0 +1,154 @@
+#post
+   width: 900px
+   float: left
+   border-bottom: 1px solid $border-color
+      
+      
+   .title
+      margin: .5rem 0px
+   
+   .video
+      +size(100% auto)
+      border: 1px solid $border-color
+      background-color: black
+      text-align: center  
+      white-space: nowrap
+      overflow: hidden
+      +position(relative)
+         
+      &:before
+         content: ''
+         height: 100%
+         +display(inline-block)
+         vertical-align: middle
+         
+      &:after
+         content: ''
+         +size(122px 30px)
+         +position(absolute, null null 50px 1rem)
+      
+      iframe
+         +size(100% 450px)
+         vertical-align: bottom
+   
+   .note
+      @extend .smaller
+      +display(inline-block)
+      padding: .4rem 0px 0px
+         
+      span
+         color: $color-alt
+         
+   .extra
+      +clearfix()
+      margin-top: .3rem
+      padding: .3rem 0px
+         
+      .report
+         float: right
+         +display(flex)
+         border: 1px solid rgba($color-alt, .4)
+         padding: .3rem .5rem
+         cursor: pointer
+         
+         input[type='submit']
+            margin-left: .5rem
+            background-color: transparent
+            border: 0px
+            text-transform: uppercase
+            @extend .big
+            color: white
+            outline: none
+               
+         svg
+            +size(25px 100%)
+            fill: $color-alt
+            
+         &:hover
+            border-color: $color-alt
+            
+      .rate-view
+         float: left
+         width: 272px
+         +display(flex)
+         +justify-content(flex-end)
+         padding: .3rem 0px
+            
+         .rate
+            margin-right: 1rem
+               
+            svg
+               +size(20px)
+               fill: $color-alt
+
+         .view, .duration
+            padding-top: 2px 
+            margin-right: 1rem
+            
+            svg
+               fill: white
+               +size(20px 100%)
+               margin-right: 3px
+               
+            span
+               +display(inline-block)
+               height: 100%   
+               
+         .duration
+            margin-right: 0px
+         
+            svg
+               +size(15px 100%)   
+            
+   .show-more
+      @extend .smaller
+      +display(block)
+      margin: .5rem auto .8rem
+      width: 90px
+      cursor: pointer
+      border-bottom: 1px solid transparent
+      text-align: center
+      
+      &:hover
+         border-color: $border-color
+            
+   .other
+      +display(flex)
+      margin-bottom: .6rem
+         
+      &:last-of-type
+         margin-bottom: 1.8rem
+
+      > *
+
+         a
+            +display(inline-block)
+            padding: 2px 6px
+            border-radius: 2px
+            margin: 2px 0px
+            border: 1px solid $border-color
+
+            &:hover
+               color: $color-alt
+
+      &:first-of-type strong
+         line-height: 1.4
+
+
+      strong
+         width: 90px
+         +flex(0 0 90px)
+         line-height: 1.9
+         
+      span
+         line-height: 1.9
+      
+   .hidden
+      +display(none)
+
+
+
+
+
+
+

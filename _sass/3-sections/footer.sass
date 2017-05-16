@@ -1,0 +1,31 @@
+#footer
+   .footer-container
+      @extend .container
+      @extend .smaller
+      padding: 1rem
+      text-align: center
+      
+      div
+         padding: .1rem 0px
+            
+         a
+            text-transform: capitalize
+            
+            &:after
+               content: ' · '
+
+            &:last-of-type:after
+               content: ''
+            
+            &:hover
+               color: $color-alt
+            
+               &:after
+                  color: #ffffff
+            
+            
+               
+         
+      
+      
+         

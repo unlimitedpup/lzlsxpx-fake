@@ -1,0 +1,40 @@
+.pagination-flex
+   +clearfix()
+   
+   &.paginate-top
+      margin-bottom: 1.5rem
+   
+   .previous, .next
+      background-color: $border-color
+      padding: 2px 5px 4px
+      
+      svg
+         +size(12px)
+         fill: white
+         
+   a.previous, a.next
+      &:hover
+         svg
+            fill: $color-alt
+         
+   a.previous
+      margin-right: .5rem
+         
+   a.next
+      margin-left: .5rem
+         
+   .page_number      
+      margin: 0px .2rem
+      font-weight: normal
+      font-size: 1.23rem
+      
+      &.current-page
+         color: $color-alt
+         
+      &:hover
+         color: $color-alt
+      
+   > *
+      +display(block)
+      float: left
+   

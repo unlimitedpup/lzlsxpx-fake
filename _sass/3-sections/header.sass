@@ -1,0 +1,140 @@
+#header
+   background-color: $color-main
+   +position(relative)
+   
+   &:after
+      content: ''
+      z-index: 1
+      +position(absolute, null 0px -1px 0px)
+      +background(linear-gradient(#222222, $color-main) top no-repeat)
+      height: 2.8rem
+      border-bottom: 1px solid $color-alt
+   
+   .header-container
+      @extend .container
+      padding: .3rem 1rem 0px
+      z-index: 2
+      
+      .header-top
+         +display(flex)
+         +justify-content(space-between)
+         +align-items(center)
+         
+         .banner
+            font-size: 3.1rem
+            font-weight: bold       
+            color: $color-alt
+            height: 80px
+            
+            img
+               +size(auto 100%)
+
+         .btn
+            vertical-align: middle
+            +clearfix()
+            
+            a
+               padding: .2rem .9rem
+               +display(inline-block)
+               border: 1px solid $border-color
+               float: left
+               
+            .upload
+               margin-right: 15px
+               
+            .login
+               margin-left: 15px
+               background-color: $color-alt
+               color: $color-light
+               +position(relative)
+               
+               &:before
+                  content: ''
+                  width: 1px
+                  background-color: $color-light
+                  +position(absolute, -1px null -1px -17px)
+               
+            .signup
+               background-color: $color-light
+               
+      .header-bottom           
+         +display(flex)
+         +justify-content(space-between)
+         +align-items(center)
+            
+         .nav-menu
+            +clearfix()
+
+            a
+               float: left
+               +display(block)
+               text-transform: capitalize
+               margin: 0px .8rem
+               line-height: 2.7
+               border-bottom: 2px solid transparent
+               font-weight: normal
+
+               &:hover
+                  border-bottom-color: $color-alt
+               
+               &.current
+                  border-bottom-color: $color-alt
+                  color: #8bff18
+                  
+                  svg
+                     fill: $color-alt
+                  
+            .home, #random               
+               svg
+                  +size(20px)
+                  fill: white
+                  
+            .home
+               margin: 0px .3rem 0px .8rem
+               
+            #random
+               margin: 0px 0px 0px .3rem
+               +position(relative)
+               
+               &:after
+                  content: 'surprise'
+                  +transition(all .15s ease-in 0s)
+                  +position(absolute, null null 0px 30px)
+                  overflow: hidden
+                  max-width: 0px
+                  color: $color-alt
+               
+               &:hover:after
+                  max-width: 100px
+                  
+
+         .search
+            +position(relative)
+            
+            &:after
+               content: ''
+               +position(absolute, 0px .4rem 0px null)
+               +size(20px 100%)
+               background:
+                  image: url('../img/lens.png')
+                  repeat: no-repeat
+                  size: 80%
+                  position: center
+               
+            input
+               outline: none
+               
+            input:-webkit-autofill 
+               -webkit-box-shadow: 0 0 0px 1000px darken($color-light, 5) inset
+               -webkit-text-fill-color: white !important
+            
+            input[type='text']
+               border: 1px solid $border-color
+               background-color: darken($color-light, 5) !important
+               padding: .3rem 1.7rem .3rem .5rem
+               
+            input[type='submit']
+               +position(absolute, 0px 0px 0px null)
+               z-index: 2            
+               width: 30px
+               opacity: 0
