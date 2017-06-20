@@ -1,18 +1,51 @@
 .posts
-   width: 900px
+   width: 100%
    float: left
    margin-bottom: -1.5rem
    
    .post-item
-      margin-bottoM: 1.5rem
-      width: 220px
+      margin-bottom: 1.5rem
+      width: 100%
       +display(inline-block)
       overflow: hidden
       
+      @media screen and (min-width: 385px)
+         width: 49%
+         
+      @media screen and (min-width: 645px)
+         width: 32.9%
+      
+      @media screen and (min-width: 720px)
+         width: 24.5%
+      
+      @media screen and (min-width: 775px)
+         width: 24.6%
+      
+      @media screen and (min-width: 950px)
+         width: 32.5%
+      
+      @media screen and (min-width: 1101px)
+         width: 24.6%
+      
       .img
          +position(relative)
-         height: 123px
+         height: 170px
          overflow: hidden
+         
+         @media screen and (min-width: 385px)
+            height: 110px
+         
+         @media screen and (min-width: 450px)
+            height: 130px
+         
+         @media screen and (min-width: 500px)
+            height: 140px
+         
+         @media screen and (min-width: 645px)
+            height: 110px
+         
+         @media screen and (min-width: 775px)
+            height: 123px
             
          > img
             width: 100%
@@ -41,7 +74,7 @@
          .rate
             +clearfix()
             float: left
-            width: 50%
+            width: 60%
 
             span
                +display(block)
@@ -56,7 +89,7 @@
          .view
             padding-top: 2px
             float: right
-            width: 50%
+            width: 40%
             text-align: right
             @extend .smaller
 
@@ -70,15 +103,48 @@
    width: 100%
    
    .post-item
-      width: 199px
+      width: 100%
+      border: 1px solid rgba($border-color, .3)
+      
+      @media screen and (min-width: 385px)
+         width: 49%
+      
+      @media screen and (min-width: 500px)
+         width: 32.8%
+      
+      @media screen and (min-width: 780px)
+         width: 24.5%
+      
+      @media screen and (min-width: 815px)
+         width: 19.6%
+      
+      @media screen and (min-width: 1170px)
+         width: 19.7%
+      
+      @media screen and (min-width: 1245px)
+         width: 16.4%
       
       .img
-         height: 110px
+         height: 170px
+         
+         @media screen and (min-width: 385px)
+            height: 100px
+         
+         @media screen and (min-width: 500px)
+            height: 110px
+         
+         @media screen and (min-width: 620px)
+            height: 120px
+         
+         @media screen and (min-width: 780px)
+            height: 110px
+         
+         img
+            min-height: 100%
          
       .text
          padding: .3rem .4rem .2rem
-         border: 1px solid $border-color
-         border-top: 0px
+         border-top: 1px solid rgba($border-color, .3)
          +clearfix()
 
          .title
