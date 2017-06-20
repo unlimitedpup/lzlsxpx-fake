@@ -2,7 +2,34 @@ $(document).ready( function () {
    randomPost();
    reportPost();
    showMore();
+   
+   if ( $(window).width() >= 950 ) {
+      fixedAds();
+   }
 })
+
+function fixedAds() {
+   var $this = $('#sidebar'),
+       parntContainer = $('#sidebar').parent(),
+       parntWidth = parntContainer.width(),
+       parntOtLeft = parntContainer.offset().left;
+   
+   var toFixed = function() {
+      var left = (parntWidth + parntOtLeft) - 300,
+          st = $(window).scrollTop(),
+          ot = parntContainer.offset().top;
+
+         if ( st > ot + 32 ) {
+            $this.css({ 'position' : 'fixed', 'top' : '0px', 'left' : left+'px' });
+         }
+
+         if ( st <= ot ) {
+            $this.css({'position' : '', 'top' : '', 'right' : ''});
+         }
+   }      
+   $(document).scroll(toFixed);      
+   toFixed();    
+}
 
 function showMore() {
    $('#post .show-more').click( function() {      
