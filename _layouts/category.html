@@ -15,7 +15,7 @@ layout: page
    {% if cat == var %}
    <a class='post-item' href='{{ post.url }}'>
       <figure class='img'>
-         <img src="{{ site.baseurl }}/assets/img/{{ post.title | replace: ' ', '-' | downcase }}.jpg" alt='{{ site.data.settings.title}} {{ post.title }}'>
+         <img src="{{ site.baseurl }}/assets/img/{{ post.title | replace: ' ', '-' | downcase }}.jpg" alt="{{ site.data.settings.title}} {{ post.title }} {{ var | replace: '-', ' '}}">
          <span class='time'>{% include icons/time.html %} {{ post.duration }}</span>
       </figure>
       <div class='text'>
