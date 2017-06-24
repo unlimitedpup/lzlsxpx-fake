@@ -27,8 +27,26 @@
          +position(absolute, null null 50px 1rem)
       
       iframe
-         +size(100% 450px)
+         +size(100% auto)
          vertical-align: bottom
+         
+         @media screen and (min-width: 450px)
+            height: 220px
+         
+         @media screen and (min-width: 550px)
+            height: 280px
+         
+         @media screen and (min-width: 680px)
+            height: 350px
+         
+         @media screen and (min-width: 768px)
+            height: 400px
+         
+         @media screen and (min-width: 950px)
+            height: 325px
+            
+         @media screen and (min-width: 1200px)
+            height: 450px
    
    .note
       @extend .smaller
@@ -44,10 +62,11 @@
       padding: .3rem 0px
          
       .report
-         float: right
          +display(flex)
+         +justify-content(center)
          border: 1px solid rgba($color-alt, .4)
          padding: .3rem .5rem
+         margin: .5rem 0px .1rem
          cursor: pointer
          
          input[type='submit']
@@ -67,10 +86,7 @@
             border-color: $color-alt
             
       .rate-view
-         float: left
-         width: 272px
          +display(flex)
-         +justify-content(flex-end)
          padding: .3rem 0px
             
          .rate
@@ -98,6 +114,16 @@
          
             svg
                +size(15px 100%)   
+         
+      @media screen and (min-width: 600px)
+         .report
+            margin: 0px
+            float: right
+            
+         .rate-view
+            float: left
+            width: 272px
+            +justify-content(flex-end)
             
    .show-more
       @extend .smaller
