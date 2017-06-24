@@ -8,16 +8,16 @@
       <priority>1.0</priority>   
    </url>
    
-   {% for post in site.for-rent %}
-      {% include sitemap-entry.xml entry=post %}
-   {% endfor %}
-   
    {% for page in site.pages %}
    {% if page.layout %}
    {% if page.exclude != true %}
       {% include sitemap-entry.xml entry=page %}
    {% endif %}
    {% endif %}
+   {% endfor %}
+   
+   {% for post in site.posts %}
+      {% include sitemap-entry.xml entry=post %}
    {% endfor %}
 </urlset>
 
