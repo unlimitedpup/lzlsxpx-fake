@@ -26,8 +26,14 @@
 
    .main-container
       @extend .container
-      padding: 2rem 1rem
+      padding: 2rem .5rem
       +clearfix()
+      
+   @media screen and (min-width: 768px)
+      .main-container
+         padding: 2rem 1rem
+      
+   
          
 .vertical-align
    white-space: nowrap

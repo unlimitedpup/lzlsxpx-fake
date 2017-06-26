@@ -12,13 +12,14 @@
    
    .header-container
       @extend .container
-      padding: .3rem 1rem 0px
+      padding: .3rem .7rem 0px
       z-index: 2
       
       .header-top
          +display(flex)
          +justify-content(space-between)
          +align-items(center)
+         margin-bottom: .5rem
          
          .banner
             font-size: 3.1rem
@@ -30,87 +31,97 @@
                +size(auto 100%)
 
          .btn
-            vertical-align: middle
-            +clearfix()
-            
-            a
-               padding: .2rem .9rem
-               +display(inline-block)
-               border: 1px solid $border-color
-               float: left
+            +display(none)
                
-            .upload
-               margin-right: 15px
-               
-            .login
-               margin-left: 15px
-               background-color: $color-alt
-               color: $color-light
-               +position(relative)
-               
-               &:before
-                  content: ''
-                  width: 1px
-                  background-color: $color-light
-                  +position(absolute, -1px null -1px -17px)
-               
-            .signup
-               background-color: $color-light
-               
-      .header-bottom           
+      .header-bottom                    
          +display(flex)
          +justify-content(space-between)
          +align-items(center)
             
-         .nav-menu
-            +clearfix()
-
-            a
-               float: left
-               +display(block)
-               text-transform: capitalize
-               margin: 0px .8rem
-               line-height: 2.7
-               border-bottom: 2px solid transparent
-               font-weight: normal
-
-               &:hover
-                  border-bottom-color: $color-alt
+         &.block-header-bottom
+            +display(block)
                
+            .nav-menu
+               .mobile-nav
+                  float: none
+               
+               #random
+                  float: none
+                  margin-left: 0px
+
+                  svg
+                     +display(none)
+
+                  &:after
+                     +display(block)
+                     margin-left: 0px
+                     color: $text-color
+               
+         .nav-menu
+            +clearfix()  
+            text-align: center     
+                     
+            .mobile-nav
+               margin-top: -1px
+               text-align: left
+               +display(block)
+               float: left
+                  
+               svg                  
+                  +size(1.6rem)
+                  fill: $text-color
+                  
+            a
+               line-height: 2.7
+               font-weight: normal
+               text-transform: capitalize
+               +display(none)
+
                &.current
                   border-bottom-color: $color-alt
                   color: #8bff18
-                  
+
                   svg
                      fill: $color-alt
+                     
+               &.show-nav
+                  +display(block)
+                     
+               &:nth-child(even)
+                  background-color: rgba($border-color, .2)
                   
-            .home, #random               
+            .home             
+               svg
+                  +display(none)
+                     
+               &:after
+                  content: 'Home'
+
+            #random        
+               margin-left: 1.3rem
+               float: left
+               +display(block)
+            
                svg
                   +size(20px)
+                  +display(inline-block)
                   fill: white
-                  
-            .home
-               margin: 0px .3rem 0px .8rem
-               
-            #random
-               margin: 0px 0px 0px .3rem
-               +position(relative)
                
                &:after
-                  content: 'surprise'
-                  +transition(all .15s ease-in 0s)
-                  +position(absolute, null null 0px 30px)
-                  overflow: hidden
-                  max-width: 0px
-                  color: $color-alt
+                  content: ' surprise'
+                  max-width: none
+                  color: $text-color
+                  +display(none)
                
-               &:hover:after
-                  max-width: 100px
-                  
+                  @media screen and (min-width: 420px)
+                     +display(inline-block)
+                     margin-left: 4px
+                     color: $color-alt
 
-         .search
+         .search   
             +position(relative)
-            
+            line-height: 2.8
+               
             &:after
                content: ''
                +position(absolute, 0px .4rem 0px null)
@@ -123,6 +134,7 @@
                
             input
                outline: none
+               width: 100%
                
             input:-webkit-autofill 
                -webkit-box-shadow: 0 0 0px 1000px darken($color-light, 5) inset
@@ -138,3 +150,85 @@
                z-index: 2            
                width: 30px
                opacity: 0
+               
+@media screen and (min-width: 768px)
+   #header
+      .header-container
+         padding: .3rem 1rem 0px
+            
+         .header-top
+            margin-bottom: 0px
+            
+            .btn
+               vertical-align: middle
+               +clearfix()
+               +display(block)
+
+               a
+                  padding: .2rem .9rem
+                  +display(inline-block)
+                  border: 1px solid $border-color
+                  float: left
+
+               .upload
+                  margin-right: 15px
+
+               .login
+                  margin-left: 15px
+                  background-color: $color-alt
+                  color: $color-light
+                  +position(relative)
+
+                  &:before
+                     content: ''
+                     width: 1px
+                     background-color: $color-light
+                     +position(absolute, -1px null -1px -17px)
+
+               .signup
+                  background-color: $color-light
+         
+         .header-bottom               
+            .nav-menu       
+               a
+                  float: left
+                  margin: 0px .8rem
+                  +display(block)
+                  border-bottom: 2px solid transparent
+
+                  &:hover
+                     border-bottom-color: $color-alt
+                  
+                  &:nth-child(even)
+                     background-color: transparent
+                  
+               .home, #random               
+                  svg
+                     +size(20px)
+                     +display(inline-block)
+                     fill: white
+                     
+               .home
+                  margin: 0px .3rem 0px .8rem
+                  
+                  &:after
+                     +display(none)
+                  
+               #random
+                  margin: 0px 0px 0px .3rem
+                  +position(relative)
+
+                  &:after
+                     +display(block)
+                     overflow: hidden
+                     +transition(all .15s ease-in 0s)
+                     +position(absolute, null null 0px 26px)
+                     max-width: 0px
+                     color: $color-alt
+
+                  &:hover:after
+                     max-width: 100px
+               
+               .mobile-nav
+                  +display(none)
+   
