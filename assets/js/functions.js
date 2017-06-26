@@ -2,11 +2,21 @@ $(document).ready( function () {
    randomPost();
    reportPost();
    showMore();
+   mobileMenu();
    
    if ( $(window).width() >= 950 ) {
       fixedAds();
    }
 })
+
+function mobileMenu() {
+   var $this = $('.mobile-nav');
+   
+   $this.click( function() {
+      $this.siblings().toggleClass('show-nav');
+      $('.header-bottom').toggleClass('block-header-bottom');
+   })
+}
 
 function fixedAds() {
    var $this = $('#sidebar'),
