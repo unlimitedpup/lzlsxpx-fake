@@ -3,6 +3,8 @@ title: 'Fake Taxi Videos'
 domain: 'FakeTaxiVids'
 email: 'trawtube@gmail.com'
 
+google-analytics: 'UA-101724073-1'
+
 menu: 
  - {name: 'popular video'}
  - {name: 'top rated'}
