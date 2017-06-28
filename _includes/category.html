@@ -1,6 +1,7 @@
 {% assign cat_list = site.categories %}
 {% for cat in cat_list %} 
    {% if cat[0] == include.cat %}    
-   <a href="{{site.baseurl}}/category/{{ cat[0] }}">{{ cat[0] | replace: '-' , ' ' }}</a>
+   {% assign x = cat[0] | replace: '-', ' ' %}
+   <a href="{{site.baseurl}}/category/{{ cat[0] }}">{% if x == 'hd' %} {{ x | upcase }} {% elsif x == 'pov' %} {{ x | upcase }} {% elsif x == 'milf' %} {{ x | upcase }} {% else %} {{ x }}{% endif %}</a>
    {% endif %}
 {% endfor %}

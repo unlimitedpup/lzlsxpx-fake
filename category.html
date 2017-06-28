@@ -19,16 +19,16 @@ changefreq: daily
    {% if cat-page.layout == 'category' %}
    {% for cat-post in site.posts %}
    {% if cat-post.title == cat-page.cover-post %}
-   {% assign x = cat[0] %}
-   {% assign y = cat-page.path | remove: 'category/' | remove: '.md' %}
+   {% assign x = cat[0] | replace: '-', ' ' %}
+   {% assign y = cat-page.path | remove: 'category/' | remove: '.md' | replace: '-', ' ' %}
    {% if x == y %}
 
    <a class='post-item' href='{{ site.baseurl }}{{ cat-page.url }}'>
       <figure class='img'>
-         <img src="{{ site.baseurl }}/assets/img/{{ cat-post.title | replace: ' ', '-' | downcase }}.jpg" alt="{{ site.data.settings.title}} {{ cat[0] | capitalize | replace: '-', ' '}}">
+         <img src="{{ site.baseurl }}/assets/img/{{ cat-post.title | replace: ' ', '-' | downcase }}.jpg" alt="{{ site.data.settings.title}} {{ x | capitalize }}">
       </figure>
       <div class='text'>
-         <div class='title'><strong>{{ cat[0] | capitalize | replace: '-', ' ' }}</strong></div>
+         <div class='title'><strong>{% if x == 'hd' %} {{ x | upcase }} {% elsif x == 'pov' %} {{ x | upcase }} {% elsif x == 'milf' %} {{ x | upcase }} {% else %} {{ x | capitalize }}{% endif %}</strong></div>
          <span class='size'>{% include icons/star-full.html %}<span>{{ cat[1].size }}</span></span>
       </div>
    </a>
