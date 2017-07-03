@@ -5,6 +5,10 @@ duration: '06:12'
 view: 150
 rate: 2
 video: 'https://pornfun.com/embed/2167'
+category: 
+ - blowjob
+tags: 
+ - sucked
 priority: 0.9
 changefreq: daily
 ---

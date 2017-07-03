@@ -5,6 +5,12 @@ duration: '06:47'
 view: 126
 rate: 2
 video: 'https://flashservice.xvideos.com/embedframe/27198067'
+category:
+ - busty
+ - outdoor
+tags: 
+ - sucked
+ - fucked
 priority: 0.9
 changefreq: daily
 ---

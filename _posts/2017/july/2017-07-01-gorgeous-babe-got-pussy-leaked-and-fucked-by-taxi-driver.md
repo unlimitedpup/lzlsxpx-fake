@@ -1,10 +1,17 @@
 ---
 layout: post
 title: Gorgeous babe got pussy leaked and fucked by taxi driver
-duration: '06:45'
+duration: '06:55'
 view: 235
 rate: 2
-video: 'http://pornmaki.com/embed/15091302'
+video: 'http://fantasti.cc/embed/818335/'
+category: 
+ - curvy
+ - gorgeous
+ - busty
+tags: 
+ - sucked
+ - fucked
 priority: 0.9
 changefreq: daily
 ---

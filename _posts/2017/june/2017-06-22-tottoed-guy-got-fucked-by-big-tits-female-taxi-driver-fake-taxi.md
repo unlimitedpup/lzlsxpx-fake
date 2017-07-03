@@ -5,6 +5,15 @@ duration: '06:38'
 view: 236
 rate: 2
 video: 'https://flashservice.xvideos.com/embedframe/25832617'
+category:
+ - tattoo
+ - rough
+ - curvy
+ - busty
+ - blonde
+tags: 
+ - sucked
+ - fucked
 priority: 0.9
 changefreq: daily
 ---

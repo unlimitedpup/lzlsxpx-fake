@@ -5,6 +5,13 @@ duration: '10:00'
 view: 221
 rate: 2
 video: 'https://flashservice.xvideos.com/embedframe/23590932'
+category:
+ - rough
+ - busty
+ - stunning
+tags: 
+ - sucked
+ - fucked
 priority: 0.9
 changefreq: daily
 ---
