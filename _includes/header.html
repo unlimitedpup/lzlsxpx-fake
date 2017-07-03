@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang='{{ site.data.settings.lang }}'>
 <head>
-   {% assign url = page.url | remove: '/' | remove: 'category' | remove: 'tags' | downcase | replace: '-', ' ' %}
-   
-   <title>{% if page.layout == 'category' %}{{ url }}{% endif %}{% if page.layout == 'tags' %}{{ url }}{% endif %}{{ page.title }}{% if page.exclude %}{% else %} · {{ site.data.settings.title }}{% endif %}{% if page.aftertitle %} · {{ page.aftertitle }}{% endif %}</title>
+   {% assign url = page.url | remove: '/' | remove: 'category' | remove: 'tags' | downcase | replace: '-', ' ' %}  
+   {% assign cat_list = site.categories %}
+   {% assign cat-list = page.categories %}
+   {% assign tag-list = page.tags %}
+
    <meta charset='utf-8'>
-   <meta name='description' content="{% if page.description %}{{ page.description }} · {% endif %}{{ page.title }}{% assign cat-list = page.categories %}{% for cat in cat-list %} & {{ cat }}{% endfor %}{% if page.layout == 'category' %}{{ url }} sex scandals{% endif %}{% if page.layout == 'tags' %}{{ url | replace: '-', ' ' }} sex scandals{% endif %}">
-   <meta name='keywords' content="{% if page.meta %}{{ page.meta }} · {% endif %}{{ page.categories }}{% assign tag-list = page.tags %}{% for tag in tag-list %} & {{ tag }}{% endfor %}{% if page.layout == 'category' %}{{ url }} sex & {{ url }} scandal & {{ url }} sex tapes & {{ url }} scandal & {{ url }} scandals & {{ url }} blowjob & {{ url }} threesome & {{ url }} twosome & {{ url }} incest & {{ url }} xvideos & {{ url }} youjizz & {{ url }} xnxx & {{ url }} pornhub & {{ url }} spankwire & {{ url }} jorpetz & {{ url }} iyottube & {{ url }} pornformance & {{ url }} masterbate & {{ url }} interracial & {{{{ url }} sex, {{ url }} scandal, {{ url }} sex tapes, {{ url }} scandal, {{ url }} scandals, {{ url }} blowjob, {{ url }} threesome, {{ url }} twosome, {{ url }} incest, {{ url }} xvideos, {{ url }} youjizz, {{ url }} xnxx, {{ url }} pornhub, {{ url }} spankwire, {{ url }} jorpetz, {{ url }} iyottube, {{ url }} pornformance, {{ url }} masterbate, {{ url }} interracial, {{ url }} taxi, {{ url }} sarap, {{ url }} kabit, {{ url }} asawa, {{ url }} girlfriend, {{ url }} blonde, {{ url }} wife, {{ url }} facial, {{ url }} neighbor, {{ url }} pinsan, {{ url }} torjack, {{ url }} kayat{% endif %}{% if page.layout == 'tags' %}{{ url }} sex, {{ url }} scandal, {{ url }} sex tapes, {{ url }} scandal, {{ url }} scandals, {{ url }} blowjob, {{ url }} threesome, {{ url }} twosome, {{ url }} incest, {{ url }} xvideos, {{ url }} youjizz, {{ url }} xnxx, {{ url }} pornhub, {{ url }} spankwire, {{ url }} jorpetz, {{ url }} iyottube, {{ url }} pornformance, {{ url }} masterbate, {{ url }} interracial, {{ url }} taxi, {{ url }} sarap, {{ url }} kabit, {{ url }} asawa, {{ url }} girlfriend, {{ url }} blonde, {{ url }} wife, {{ url }} facial, {{ url }} neighbor, {{ url }} pinsan, {{ url }} torjack, {{ url }} kayat{% endif %}{% if page.title == 'Popular Categories' %}{% assign cat_list = site.categories %}{% for cat in cat_list %}{% for cat-page in site.pages %}{% if cat-page.layout == 'category' %}{% for cat-post in site.posts %}{% if cat-post.title == cat-page.cover-post %}{% assign x = cat[0] %}{% assign y = cat-page.path | remove: 'category/' | remove: '.md' %}{% if x == y %}{{ cat[0] | replace: '-', ' ' }} & {% endif %}{% endif %}{% endfor %}{% endif %}{% endfor %}{% endfor %}{{ site.data.settings.title }} Category{% endif %}">
+   {% if page.exclude %}
+   {% for meta in site.data.settings.meta %}
+   {% assign page-title = page.title | replace: ' ', '-' | downcase %}
+   {% if page-title == meta.page-name %}   
+   <title>{{ page.title }}{% if meta.aftertitle %} · {{ meta.aftertitle }}{% else %} · {{ site.data.settings.title }}{% endif %}</title>   
+   <meta name='description' content='{{ meta.desc }}'>
+   <meta name='keywords' content="{% if page.title == 'Category' %}{% for cat in cat_list limit=10 %}{% for cat-page in site.pages %}{% if cat-page.layout == 'category' %}{% for cat-post in site.posts %}{% if cat-post.title == cat-page.cover-post %}{% assign x = cat[0] %}{% assign y = cat-page.path | remove: 'category/' | remove: '.md' %}{% if x == y %}{{ cat[0] | replace: '-', ' ' }} & {% endif %}{% endif %}{% endfor %}{% endif %}{% endfor %}{% endfor %}{{ site.data.settings.title }}{% else %}{{ meta.keyword }}{% endif %}">
+   {% endif %}
+   {% endfor %}
+   {% else %} 
+   <title>{% if page.layout == 'category' or page.layout == 'tags' %}{{ url | capitalize }} · {{ site.data.settings.title }}{% else %}{{ page.title }} · {{ site.data.settings.title }}{% endif %}</title>
+   <meta name='description' content="{% if page.layout == 'post' %}{{ page.title }}{% for cat in cat-list %} & {{ cat }}{% endfor %}{% for tag in tag-list %} & {{ tag }}{% endfor %}{% elsif page.layout == 'category' or page.layout == 'tags' %}{{ url }} sex scandal & {{ url }} fucked & {{ url }} big black cock & {{ url }} brunette & {{ url }} babe & {{ url }} fake taxi & {{ url }} interracial & {{ url }} extreme fuck & {{ url }} rough sex & {{ url }} gangbang {{ site.data.settings.title }}{% else %}{{ page.desc }}{% endif %}">
+   <meta name='keywords' content="{% if page.layout == 'post' %}{% for cat in cat-list %}{{ cat }}, {% endfor %}{% for tag in tag-list %}{% if forloop.last %}{{ tag }}{% else %}{{ tag }}, {% endif %}{% endfor %}{% elsif page.layout == 'category' or page.layout == 'tags' %}{{ url }} sex scandal, {{ url }} fucked, {{ url }} big black cock, {{ url }} brunette, {{ url }} babe, {{ url }} fake taxi, {{ url }} interracial, {{ url }} extreme fuck, {{ url }} rough sex, {{ url }} gangbang {{ site.data.settings.title }}{% else %}{{ page.keyword }}{% endif %}">
+   {% endif %}  
+   
    <meta name='author' content='{{site.data.settings.author}}'>
    <meta name='dcterms.rightHolder' content='{{site.url}}'>
    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -40,7 +55,7 @@
                {% for menu in site.data.settings.menu %}
                {% if menu.name != 'contact' %}
                {% assign menu-item = menu.name | replace: ' ', '-' %}
-               <a class="{{ menu.name | replace: ' ', '-' }}{% if page.url contains menu-item %} current{% endif %}" href="/{{ menu.name | replace: ' ', '-' }}">{{ menu.name }}</a>
+               <a class="{{ menu.name | replace: ' ', '-' }}{% if page.url contains menu-item %} current{% endif %}" href="/{{ menu.name | replace: ' ', '-'}}">{{ menu.name }}</a>
                {% endif %}
                {% endfor %}
                
