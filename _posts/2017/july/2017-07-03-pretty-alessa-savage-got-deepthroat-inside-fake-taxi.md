@@ -13,7 +13,6 @@ category:
  - outdoor
  - curly-hair
  - brunette
- - rough
  - skinny
  - tattoo
 tags: 
