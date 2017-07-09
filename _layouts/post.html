@@ -38,11 +38,11 @@ layout: page
       </form>
    </section>   
    
-   <span class='show-more'>.. Show more ..</span>
+   <span class='show-more hidden'>.. Show more ..</span>
    
-   <section class='other hidden'><strong>Added On: </strong><span>{{ page.date | date: "%B %-d, %Y" }}</span></section>
+   <section class='other'><strong>Added On: </strong><span>{{ page.date | date: "%B %-d, %Y" }}</span></section>
    
-   <section class='other hidden'>
+   <section class='other'>
       <strong>Category: </strong>
       <span>
          {% if page.categories.size != 0 %}
@@ -55,7 +55,7 @@ layout: page
       </span>
    </section> 
 
-   <section class='other hidden'>
+   <section class='other'>
       <strong>Tags: </strong>
       <span>
          {% if page.tags.size != 0 %}
