@@ -4,7 +4,7 @@ title: Tattooed muscleman commuter gets pleasure with blonde pussy
 duration: '09:30'
 view: 241
 rate: 2
-video: 'https://www.faptube.com/embed/27630'
+video: 'http://fantasti.cc/embed/849887/'
 category:
  - blonde
  - blowjob
