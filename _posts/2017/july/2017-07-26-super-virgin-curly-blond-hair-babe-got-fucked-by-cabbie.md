@@ -4,7 +4,7 @@ title: Super virgin curly blond hair babe got fucked by cabbie
 duration: '09:54'
 view: 200
 rate: 2
-video: 'http://fantasti.cc/embed/862647/'
+video: 'https://www.peekvids.com/embed?v=cL0LpWz1O-R'
 category:
  - blonde
  - busty
