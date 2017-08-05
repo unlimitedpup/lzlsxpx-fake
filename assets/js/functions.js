@@ -43,8 +43,8 @@ function fixedAds() {
 
 function showMore() {
    $('#post .show-more').click( function() {      
-      $('#post .other').removeClass('hidden');
-      $('#post .show-more').addClass('hidden');
+      $('#post .other').css({ 'display' : 'flex' });
+      $('#post .show-more').css({ 'display' : 'none'});
    })   
 }
 

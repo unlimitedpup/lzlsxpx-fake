@@ -1,7 +1,7 @@
 (function() {
 
-  function displaySearchResults(results, store) {     
-   document.getElementById("title").innerHTML=searchTerm;   
+  function displaySearchResults(results, store) {
+   document.getElementById("title").innerHTML = searchTerm;   
    var searchResults = document.getElementById('search-results');
 
    if (results.length) { // Are there any results?
